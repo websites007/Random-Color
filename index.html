@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Colors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="form">
+            <div class="color">rgb(255, 255, 255)</div>
+            <button class="btn">Random</button>
+        </div>
+    </div>
+
+    <script>
+        const color = document.querySelector('.color')
+        const btnRandom = document.querySelector('.btn')
+        const body = document.querySelector('body')
+
+        function ColorRandom(e) {
+            let num = 255
+    
+            return Math.trunc(Math.random() * num) + 1
+            
+        }
+        
+        btnRandom.addEventListener('click', () => {
+
+            const el = {
+                color1: ColorRandom(),
+                color2: ColorRandom(),
+                color3: ColorRandom()
+            }
+
+            let rgb = `rgb(${el.color1},${el.color2},${el.color3})`
+
+            console.log(el)
+
+            if(el.color1 < 150 && el.color2 < 65) {
+                color.style.color = '#fff'
+            } else {
+                color.style.color = '#000'
+            }
+
+            color.style.background = rgb
+
+            color.textContent = rgb
+
+        })
+
+
+    </script>
+
+</body>
+</html>
